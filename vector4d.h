@@ -1,10 +1,13 @@
+#ifndef VECTOR4D_H
+#define VECTOR4D_H
+
 #include <math.h>
 
 namespace GameMath
 {
 	struct Vector4D
 	{
-		float		x, y, z, w;
+		float x, y, z, w;
 
 		Vector4D() = default;
 
@@ -64,3 +67,4 @@ namespace GameMath
 		}
 	};
 }
+#endif

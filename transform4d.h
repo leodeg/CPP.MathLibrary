@@ -1,6 +1,8 @@
-#include <math.h>
-#include "matrix4d.cpp"
-#include "point3d.cpp"
+#ifndef TRANSFORM4D_H
+#define TRANSFORM4D_H
+
+#include "matrix4d.h"
+#include "point3d.h"
 
 namespace GameMath
 {
@@ -104,6 +106,13 @@ namespace GameMath
 						 H(2,0) * v.x + H(2,1) * v.y + H(2,2) * v.z));
 	}
 
+	Vector3D operator *(const Vector3D& n, const Transform4D& H)
+	{
+		return (Vector3D(n.x * H(0,0) + n.y * H(1,0) + n.z * H(2,0),
+						 n.x * H(0,1) + n.y * H(1,1) + n.z * H(2,1),
+						 n.x * H(0,2) + n.y * H(1,2) + n.z * H(2,2)));
+	}
+
 	Point3D operator *(const Transform4D& H, const Point3D& p)
 	{
 		return (Point3D(H(0,0) * p.x + H(0,1) * p.y + H(0,2) * p.z + H(0,3),
@@ -111,3 +120,5 @@ namespace GameMath
 						H(2,0) * p.x + H(2,1) * p.y + H(2,2) * p.z + H(2,3)));
 	}
 }
+
+#endif

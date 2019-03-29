@@ -1,5 +1,7 @@
-#include <math.h>
-#include "vector3d.cpp"
+#ifndef QUATERNION_H
+#define QUATERNION_H
+
+#include "matrix3d.h"
 
 namespace GameMath
 {
@@ -121,3 +123,4 @@ namespace GameMath
 		}
 	}
 }
+#endif

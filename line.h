@@ -1,7 +1,10 @@
+#ifndef LINE_H
+#define LINE_H
+
 #include <math.h>
-#include "vector3d.cpp"
-#include "transform4d.cpp"
-#include "plane.cpp"
+#include "vector3d.h"
+#include "transform4d.h"
+#include "plane.h"
 
 namespace GameMath
 {
@@ -96,3 +99,5 @@ namespace GameMath
 		return (-(p ^ f));
 	}
 }
+
+#endif

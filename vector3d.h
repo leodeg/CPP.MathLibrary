@@ -1,11 +1,13 @@
+#ifndef VECTOR3D_H
+#define VECTOR3D_H
+
 #include <math.h>
-#include "matrix3d.cpp"
 
 namespace GameMath
 {
 	struct Vector3D
 	{
-		float		x, y, z;
+		float x, y, z;
 
 		Vector3D() = default;
 
@@ -96,20 +98,6 @@ namespace GameMath
 		return (Vector3D(a.x - b.x, a.y - b.y, a.z - b.z));
 	}
 
-	Vector3D operator *(const Matrix3D& M, const Vector3D& v)
-	{
-		return (Vector3D(M(0,0) * v.x + M(0,1) * v.y + M(0,2) * v.z,
-						 M(1,0) * v.x + M(1,1) * v.y + M(1,2) * v.z,
-						 M(2,0) * v.x + M(2,1) * v.y + M(2,2) * v.z));
-	}
-
-	Vector3D operator *(const Vector3D& n, const Transform4D& H)
-	{
-		return (Vector3D(n.x * H(0,0) + n.y * H(1,0) + n.z * H(2,0),
-						 n.x * H(0,1) + n.y * H(1,1) + n.z * H(2,1),
-						 n.x * H(0,2) + n.y * H(1,2) + n.z * H(2,2)));
-	}
-
 	inline float Dot(const Vector3D& a, const Vector3D& b)
 	{
 		return (a.x * b.x + a.y * b.y + a.z * b.z);
@@ -133,3 +121,4 @@ namespace GameMath
 	}
 
 }
+#endif

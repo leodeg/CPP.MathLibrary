@@ -1,5 +1,7 @@
-#include <math.h>
-#include "vector3d.cpp"
+#ifndef MATRIX3D_H
+#define MATRIX3D_H
+
+#include "vector3d.h"
 
 namespace GameMath
 {
@@ -49,6 +51,13 @@ namespace GameMath
 			return (*reinterpret_cast<const Vector3D *>(n[j]));
 		}
 	};
+
+	Vector3D operator *(const Matrix3D& M, const Vector3D& v)
+	{
+		return (Vector3D(M(0,0) * v.x + M(0,1) * v.y + M(0,2) * v.z,
+						 M(1,0) * v.x + M(1,1) * v.y + M(1,2) * v.z,
+						 M(2,0) * v.x + M(2,1) * v.y + M(2,2) * v.z));
+	}
 
 	float Determinant(const Matrix3D& M)
 	{
@@ -198,3 +207,5 @@ namespace GameMath
 						 z * b.x, z * b.y, z * b.z + 1.0F));
 	}
 }
+
+#endif

@@ -1,7 +1,9 @@
-#include <math.h>
-#include "vector3d.cpp"
-#include "point3d.cpp"
-#include "transform4d.cpp"
+#ifndef PLANE3D_H
+#define PLANE3D_H
+
+#include "vector3d.h"
+#include "point3d.h"
+#include "transform4d.h"
 
 namespace GameMath
 {
@@ -125,3 +127,4 @@ namespace GameMath
 	}
 
 }
+#endif

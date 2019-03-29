@@ -1,5 +1,7 @@
-#include <math.h>
-#include <vector3d.cpp>
+#ifndef POINT3D_H
+#define POINT3D_H
+
+#include <vector3d.h>
 
 namespace GameMath
 {
@@ -69,3 +71,4 @@ namespace GameMath
 		return (sqrt(Dot(a, a) / v12));
 	}
 }
+#endif

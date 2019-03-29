@@ -1,5 +1,8 @@
-#include <math.h>
-#include "vector4d.cpp"
+#ifndef MATRIX4D_H
+#define MATRIX4D_H
+
+#include "vector4d.h"
+#include "matrix3d.h"
 
 namespace GameMath
 {
@@ -7,7 +10,7 @@ namespace GameMath
 	{
 	protected:
 
-		float		n[4][4];
+		float n[4][4];
 
 	public:
 
@@ -78,10 +81,10 @@ namespace GameMath
 		const float& z = M(3,2);
 		const float& w = M(3,3);
 
-		Vector3D s = Cross(a, b);
-		Vector3D t = Cross(c, d);
-		Vector3D u = a * y - b * x;
-		Vector3D v = c * w - d * z;
+		GameMath::Vector3D s = GameMath::Cross(a, b);
+		GameMath::Vector3D t = GameMath::Cross(c, d);
+		GameMath::Vector3D u = a * y - b * x;
+		GameMath::Vector3D v = c * w - d * z;
 
 		float invDet = 1.0F / (Dot(s, v) + Dot(t, u));
 		s *= invDet;
@@ -100,3 +103,4 @@ namespace GameMath
 						 r3.x, r3.y, r3.z,  Dot(c, s)));
 	}
 }
+#endif
